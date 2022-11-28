@@ -29,7 +29,7 @@ public class CalcService {
 
     public float divide(int num1, int num2) {
         if (num2 == 0) {
-            throw new DivideForNullException("нельзя делить на ноль");
+            throw new DivideForNullException("Нельзя делить на 0 (ноль)!!!");
         } else if (isChecked(num1, num2)) {
             return (float) num1 / num2;
         }
