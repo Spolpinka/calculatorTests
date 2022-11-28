@@ -5,12 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import pro.sky.calculator.calculatortests.exceptions.DivideForNullException;
 import pro.sky.calculator.calculatortests.service.CalcService;
 
 import java.util.List;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorTest {
     private int num1;
@@ -123,6 +125,14 @@ public class CalculatorTest {
                 Arguments.of(-10, 2, -5),
                 Arguments.of(35, 5, 7)
         );
+    }
+
+    //тест выбрасывания исключения
+    @Test
+    public void divideForNullThrowsTest(){
+        assertThrows(DivideForNullException.class, () -> {
+            calcService.divide(23, 0);
+        });
     }
 }
 
